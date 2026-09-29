@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import wedding from "./data/wedding";
 import OpeningScreen from "./components/OpeningScreen";
 import Hero from "./components/Hero";
@@ -51,6 +52,7 @@ export default function App() {
 
         </div>
       )}
+      <Analytics />
     </>
   );
 }
