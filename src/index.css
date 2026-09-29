@@ -1,0 +1,247 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --font-heading: "Playfair Display", Georgia, serif;
+  --font-script: "Alex Brush", "Great Vibes", cursive;
+  --font-sans: "Playfair Display", Georgia, serif;
+  --font-body: "Playfair Display", Georgia, serif;
+
+  --color-ivory: #faf7f2;
+  --color-ivory-light: #fdfbf7;
+  --color-ivory-dark: #eee6db;
+  --color-gold: #c5a059;
+  --color-gold-light: #e0c57d;
+  --color-gold-dark: #99732b;
+  --color-charcoal: #231f1c;
+  --color-charcoal-muted: #5e5750;
+  --color-charcoal-subtle: #8a8278;
+}
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #faf7f2;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  background-color: #faf7f2;
+  color: #231f1c;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== GLOBAL BACKGROUND ===== */
+.wedding-bg-wrapper {
+  position: relative;
+  min-height: 100vh;
+}
+
+.wedding-bg-wrapper::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/wedding-bg.png");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  z-index: 0;
+}
+
+/* A broad ivory backdrop keeps the text legible while leaving the wedding
+   artwork visible around it. This is a color overlay, not a blur. */
+.wedding-bg-wrapper::after {
+  content: "";
+  position: fixed;
+  top: clamp(24px, 4vh, 40px);
+  left: 50%;
+  width: min(92%, 1040px);
+  height: calc(100% - clamp(24px, 4vh, 40px));
+  transform: translateX(-50%);
+  border-radius: clamp(48px, 9vw, 100px) clamp(48px, 9vw, 100px) 0 0;
+  background: rgba(253, 251, 247, 0.86);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 2.5%,
+    #000 97.5%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 2.5%,
+    #000 97.5%,
+    transparent 100%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+.wedding-bg-wrapper > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== GOLD GRADIENT TEXT ===== */
+.gold-gradient-text {
+  background: linear-gradient(
+    135deg,
+    #a87e38 0%,
+    #d8b76e 35%,
+    #f4e3a4 55%,
+    #c5a059 80%,
+    #946927 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== SUBTLE TRANSLUCENT PANELS — no blur, background stays sharp ===== */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.glass-panel-strong {
+  background: rgba(255, 255, 255, 0.20);
+}
+
+/* ===== GOLD DIVIDER ===== */
+.gold-divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c5a059, transparent);
+  margin: 0 auto;
+}
+
+.gold-divider-wide {
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.6), transparent);
+  margin: 0 auto;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes gentle-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(197, 160, 89, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(197, 160, 89, 0.3);
+  }
+}
+
+.animate-gentle-float {
+  animation: gentle-float 4s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+.animate-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Stagger delays for sequential reveal */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-700 { animation-delay: 0.7s; }
+.delay-800 { animation-delay: 0.8s; }
+
+/* ===== SCROLLBAR STYLING ===== */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(197, 160, 89, 0.3);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(197, 160, 89, 0.5);
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
