@@ -27,9 +27,9 @@ export default function Footer({ wedding, onReplayVideo }) {
         {/* Gold Divider */}
         <div className="gold-divider" />
 
-        {/* Hashtag & Date */}
+        {/* Couple Names & Date */}
         <p className="text-xs tracking-[0.25em] text-[#8a8278] uppercase font-normal">
-          #RameesWedsNafreena &bull; 18.10.2026
+          #Ramees Weds Nafreena &bull; 18.10.2026
         </p>
 
         {/* Replay Video */}

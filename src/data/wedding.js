@@ -6,11 +6,11 @@
 export const wedding = {
   groom: "Ramees",
   groomTitle: "Groom",
-  groomParents: "Son of Mr. & Mrs. Hydrose",
+  groomParents: "Son of Abdul Latheef & Khadeeja",
   
   bride: "Nafreena",
   brideTitle: "Bride",
-  brideParents: "Daughter of Mr. & Mrs. Najeeb",
+  brideParents: "Daughter of Noushad & Naseera",
 
   date: "18 October 2026",
   dateTime: "2026-10-18T11:00:00",
@@ -18,8 +18,8 @@ export const wedding = {
   time: "11:00 AM",
 
   venue: "Grand Auditorium",
-  location: "Chittur, Palakkad",
-  address: "Grand Auditorium, College Road, Chittur, Kerala",
+  location: "Chittur, Palakkad , Kerala",
+  address: "",
 
   // Google Maps navigation link
   mapsUrl: "https://share.google/CuYx32a7j8EPFPEtA",
