@@ -55,6 +55,10 @@ export default function Hero({ wedding }) {
           {wedding.groom}
         </div>
 
+        <p className="mt-2 text-sm sm:text-base text-[#5e5750] tracking-wide italic">
+          {wedding.groomParents}
+        </p>
+
         <div
           className="my-2 sm:my-3 text-4xl sm:text-5xl md:text-6xl text-[#c5a059] leading-none select-none"
           style={{ fontFamily: "'Alex Brush', cursive" }}
@@ -68,17 +72,7 @@ export default function Hero({ wedding }) {
         >
           {wedding.bride}
         </div>
-      </div>
-
-      {/* Parents */}
-      <div
-        className={`mt-4 space-y-1 opacity-0 ${isVisible ? "animate-fade-in-up" : ""}`}
-        style={{ animationDelay: "0.55s", animationFillMode: "forwards" }}
-      >
-        <p className="text-sm sm:text-base text-[#5e5750] tracking-wide italic">
-          {wedding.groomParents}
-        </p>
-        <p className="text-sm sm:text-base text-[#5e5750] tracking-wide italic">
+        <p className="mt-2 text-sm sm:text-base text-[#5e5750] tracking-wide italic">
           {wedding.brideParents}
         </p>
       </div>
